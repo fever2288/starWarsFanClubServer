@@ -22,3 +22,16 @@ module.exports.getAllMoviesByTitle = async (searchTerm) => {
     throw new Error(error);
   }
 };
+
+module.exports.getCharacter = async (route) => {
+  let data = {};
+  try {
+    await httpClient.get(route).then((response) => {
+      data = response.data;
+    });
+    return data;
+  } catch (error) {
+    console.log('Something went wrong: Service: getCharacter', error);
+    throw new Error(error);
+  }
+};

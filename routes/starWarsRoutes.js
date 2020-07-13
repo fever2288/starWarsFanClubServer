@@ -10,4 +10,14 @@ router.get(
   movieController.getAllMovies,
 );
 
+
+router.get(
+  '/charactersForMovie',
+  joiSchemaValidation.validateQueryParams(
+    movieSchema.getAllCharactersForTheMovie,
+  ),
+  movieController.getAllCharactersForTheMovie,
+);
+
 module.exports = router;
+
