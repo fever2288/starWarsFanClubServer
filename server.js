@@ -13,6 +13,8 @@ app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 })
 
+app.use('/api/v1/starWars', require('./routes/starWarsRoutes'));
+
 //error handler middlware
 app.use(function (err, req, res, next) {
     console.log(err.stack);
