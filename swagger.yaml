@@ -1,0 +1,72 @@
+swagger: '2.0'
+info:
+  description: Star Wars Rest API doc
+  version: '1.0.0'
+  title: Star wars Rest API doc
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: srdjan2288@hotmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: localhost:5042
+basePath: /api/v1/starWars
+schemes:
+- http
+paths:
+  /movies:
+    get:
+      tags:
+        - Movie module
+      summary: Get movies for search term
+      description: API for fetching all movies by search parameter
+      parameters:
+        - name: searchTerm
+          in: query
+          description: Search phrase that will be used for searching movie titles
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Movies fetched Successfully
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  /charactersForMovie:
+   get:
+      tags:
+        - Movie module
+      summary: Get characters for chosen movie
+      description: API for fetching all characters in selected movie
+      parameters:
+        - name: title
+          in: query
+          description: Full title of the movie
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Characters fetched successfully
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+definitions:
+  ApiResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
