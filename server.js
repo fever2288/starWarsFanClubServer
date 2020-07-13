@@ -13,4 +13,14 @@ app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 })
 
+//error handler middlware
+app.use(function (err, req, res, next) {
+    console.log(err.stack);
+    res.status(500).send({
+      status: 500,
+      message: err.message,
+      body: {},
+    })
+  })
+
 
