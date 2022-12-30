@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/fever2288/starWarsFanClubServer#readme",
   "devDependencies": {
-    "mocha": "^8.0.1",
+    "mocha": "^8.4.0",
     "nodemon": "^2.0.4",
     "sinon": "^9.0.2"
   },
